@@ -1,0 +1,100 @@
+#:import utils kivy.utils
+
+<MyBigButt@Button>:
+    text: ''
+    color: utils.get_color_from_hex("#e28c06")
+    font_size: '30sp'
+    markup: True
+
+<TTT>:
+    rows: 3
+    #instruction row
+    BoxLayout:
+        id: instruction_row
+        size_hint: 1, .15
+        padding: [10,10]
+        Label:
+            id: label_instruction
+            halign: 'center'
+            text: "Player's Turn"
+            color: utils.get_color_from_hex("#e28c06")
+            markup: True
+            font_size: '22sp'
+            text_size: self.width, None
+
+    #number grid
+    GridLayout:
+        id: number_grid
+        rows: 3
+        size_hint: 1, 1
+        pos_hint: {'x': 0, 'y': 0}
+        canvas.before:
+            Color:
+                rgb: utils.get_color_from_hex("#176171")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            orientation: 'horizontal'
+            MyBigButt:
+                id : 0
+                on_release: root.click(0)
+            MyBigButt:
+                id : 1
+                on_release: root.click(1)
+            MyBigButt:
+                id : 2
+                on_release: root.click(2)
+        BoxLayout:
+            orientation: 'horizontal'
+            MyBigButt:
+                id : 3
+                on_release: root.click(3)
+            MyBigButt:
+                id : 4
+                on_release: root.click(4)
+            MyBigButt:
+                id : 5
+                on_release: root.click(5)
+        BoxLayout:
+            orientation: 'horizontal'
+            MyBigButt:
+                id : 6
+                on_release: root.click(6)
+            MyBigButt:
+                id : 7
+                on_release: root.click(7)
+            MyBigButt:
+                id : 8
+                on_release: root.click(8)
+
+    #Timer and Reset button
+    BoxLayout:
+        orientation: 'horizontal'
+        id: timer_row
+        size_hint: .8, .15
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 10
+            Label:
+                id: label_timer
+                size_hint: 1, 1
+                halign: 'center'
+                text: "%s:%s" % (root.minutes, root.seconds)
+                #md_bg_color: utils.get_color_from_hex("#e28c06")
+                color: utils.get_color_from_hex("#e28c06")
+                font_size: '20sp'
+                text_size: self.width, None
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 10
+            spacing: 10
+            MDRaisedButton:
+                id: button_reset
+                text: "[b]Reset[/b]"
+                size_hint: 1, 1
+                md_bg_color: utils.get_color_from_hex("#e28c06")
+                markup: True
+                text_size: self.width, None
+                on_release: root.reset_timer()
