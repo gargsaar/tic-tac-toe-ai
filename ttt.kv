@@ -1,0 +1,62 @@
+#:import utils kivy.utils
+
+<TTT>:
+    rows: 3
+
+    #instruction row
+    BoxLayout:
+        id: instruction_row
+        size_hint: 1, .15
+        padding: [10,10]
+        Label:
+            id: label_instruction
+            halign: 'center'
+            text: "X's Turn"
+            color: utils.get_color_from_hex("#f2ec44")
+            markup: True
+            font_size: '25sp'
+            text_size: self.width, None
+
+    #number grid
+    GridLayout:
+        id: number_grid
+        cols: 3
+        size_hint: 1, 1
+        pos_hint: {'x': 0, 'y': 0}
+        canvas.before:
+            Color:
+                rgb: utils.get_color_from_hex("#56555a")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+    #Timer and Reset button
+    BoxLayout:
+        orientation: 'horizontal'
+        id: timer_row
+        size_hint: .8, .15
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 10
+            spacing: 10
+            Label:
+                id: label_timer
+                size_hint: 1, 1
+                halign: 'center'
+                text: "%s:%s" % (root.minutes, root.seconds)
+                #md_bg_color: utils.get_color_from_hex("#f2ec44")
+                color: utils.get_color_from_hex("#f2ec44")
+                font_size: '20sp'
+                text_size: self.width, None
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 10
+            spacing: 10
+            MDRaisedButton:
+                id: button_reset
+                text: "[b]Reset[/b]"
+                size_hint: 1, 1
+                #md_bg_color: utils.get_color_from_hex("#339933")
+                markup: True
+                text_size: self.width, None
+                on_release: root.reset_timer()
