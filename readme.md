@@ -6,7 +6,7 @@ Kivy app for Tic-Tac-Toe game powered by MiniMax algoritm for Artificial Intelli
 
 ## Game Screenshot
 
-![Game Screenshot](https://github.com/gargsaar/age_test_game/blob/master/Age_test_game_screenshot.png)
+![Game Screenshot](https://github.com/gargsaar/tic-tac-toe-ai/blob/master/tic-tac-toe-game-screenshot.png)
 
 ## Purpose
 
