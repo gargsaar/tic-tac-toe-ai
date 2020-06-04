@@ -20,5 +20,5 @@ KivyMD is a collection of Material Design compliant widgets for use with Kivy fr
 
 ## Game Screenshot
 
-![Game Screenshot](https://github.com/gargsaar/tic-tac-toe-ai/blob/master/tic-tac-toe-game_screenshot.png)
+<img src="https://github.com/gargsaar/tic-tac-toe-ai/blob/master/tic-tac-toe-game_screenshot.png" alt="Tic_Tac_Toe_AI" title="Tic Tac Toe AI Game" width="300" height="500" />
 
